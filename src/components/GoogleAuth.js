@@ -29,6 +29,15 @@ class GoogleAuth extends React.Component {
         this.setState({isSignedIn: this.auth.isSignedIn.get() });
     };
 
+    //sign in helper method
+    onSignInClick = () => {
+        this.auth.signIn();
+    }
+
+    //sign out helper method 
+    onSignOutClick = () => {
+        this.auth.signOut();
+    }
 
     //helper method- check sign in
     renderAuthButton() {
@@ -38,7 +47,8 @@ class GoogleAuth extends React.Component {
         } else if (this.state.isSignedIn) { //true
             //sign out button
             return (
-            <button className="ui red google button">
+                //no () needed for onSignOut as we dont want it to render the first instance on screen
+            <button onClick={this.onSignOutClick} className="ui red google button">
                 <i className="google icon" />
                 Sign Out
             </button>
@@ -46,7 +56,7 @@ class GoogleAuth extends React.Component {
         } else { //false
             //sign in button
             return (
-                <button className="ui red google button">
+                <button onClick={this.onSignInClick} className="ui red google button">
                     <i className="google icon" />
                     Sign In with Google
                 </button>
