@@ -1,18 +1,24 @@
 import React from 'react';
 import {BrowserRouter, Route, Link} from 'react-router-dom'; 
+
+//Import all stream pages
 import StreamCreate from './streams/StreamCreate';
 import StreamEdit from './streams/StreamEdit';
 import StreamDelete from './streams/StreamDelete';
 import StreamShow from './streams/StreamShow';
 import StreamList from './streams/StreamList';
 
+//import header file
+import Header from './Header';
 
 
 
 const App = () => {
     return (
-    <div> 
+    <div className="ui container">
+        
         <BrowserRouter>
+        <Header /> {/* import header on all pages*/ }
             <div>
                 <Route path="/" exact component={StreamList} /> {/* the home path*/}
                 <Route path="/streams/new" exact component={StreamCreate} /> 
