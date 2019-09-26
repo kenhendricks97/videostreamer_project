@@ -16,8 +16,8 @@ class StreamCreate extends React.Component {
     }
 
     //helper method
-    onSubmit(formValues) {
-        console.log(formValues);
+   onSubmit(formValues) {
+        console.log(formValues)
     }
 
     render() {
