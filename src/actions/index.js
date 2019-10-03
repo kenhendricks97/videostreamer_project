@@ -1,4 +1,6 @@
+import streams from '../apis/streams'; 
 import {SIGN_IN,SIGN_OUT} from './types';
+
 
 
 //action creator 
@@ -15,3 +17,10 @@ export const signOut = () => {
         type: SIGN_OUT
     };
 };
+
+
+//action creator for api create stream
+export const createStream = formValues => async dispatch => {
+    streams.post('/streams', formValues) //making post request through axios
+};
+
