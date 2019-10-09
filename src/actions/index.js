@@ -39,7 +39,7 @@ export const createStream = formValues => async dispatch => {
 export const fetchStreams = () => async dispatch => {
     const response = await streams.get('/streams');
 
-    dispatch({type: FETCH_STREAM, payload: response.data });
+    dispatch({type: FETCH_STREAMS, payload: response.data });
 };
 
 //FETCHING 1 STREAM action creator - need to pass in id for stream you want to fetch
