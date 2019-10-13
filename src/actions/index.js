@@ -28,8 +28,11 @@ export const signOut = () => {
 
 
 //action creator for api create stream, aynsc uses redux thunk
-export const createStream = formValues => async dispatch => {
-    const response = await streams.post('/streams', formValues) //making post request through axios
+export const createStream = formValues => async (dispatch, getState) => {
+    //need user id to see who created stream
+    const {userId} = getState().auth;
+    //add id of user as well
+    const response = await streams.post('/streams', {...formValues, userId}) //making post request through axios
 
     //dispatch action of type create stream
     dispatch({type: CREATE_STREAM,  payload: response.data});
