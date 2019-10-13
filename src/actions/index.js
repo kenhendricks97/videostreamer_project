@@ -1,4 +1,6 @@
 import streams from '../apis/streams'; //axios 
+import history from '../history'
+
 import {
     SIGN_IN,
     SIGN_OUT, 
@@ -36,6 +38,10 @@ export const createStream = formValues => async (dispatch, getState) => {
 
     //dispatch action of type create stream
     dispatch({type: CREATE_STREAM,  payload: response.data});
+
+    //do programmatic navigation to
+    //get the user back to the root route - home page of all streams
+    history.push('/');
 };
 
 //FETCHING LIST OF STREAMS action creator
