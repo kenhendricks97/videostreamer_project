@@ -60,9 +60,10 @@ export const fetchStream = (id) => async dispatch => {
 
 //editing a stream action creator - need to pass in id and the formValues you want to submit as an edit
 export const editStream = (id,formValues) => async dispatch => {
-    const response = await streams.put(`/streams/${id}`, formValues); //have to pass in the edits
+    const response = await streams.patch(`/streams/${id}`, formValues); //have to pass in the edits
 
     dispatch({type: EDIT_STREAM, payload: response.data });
+    history.push('/'); //sends user back to root application - homepage
 };
 
 //deleting action creator - need to pass in id, no response needed
