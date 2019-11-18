@@ -20,15 +20,17 @@ const App = () => {
         
         <Router history={history}>
         <Header /> {/* import header on all pages*/ }
-            <div>
-                <Switch> {/*Shows just 1 route, cant show multiple*/ }
+            <Switch>
+            
+                 {/*Shows just 1 route, cant show multiple*/ }
                     <Route path="/" exact component={StreamList} /> {/* the home path*/}
                     <Route path="/streams/new" exact component={StreamCreate} /> 
                     <Route path="/streams/edit/:id" exact component={StreamEdit} /> {/*Always go to streams/edit/stream id*/}
                     <Route path="/streams/delete/:id" exact component={StreamDelete} />
                     <Route path="/streams/:id" exact component={StreamShow} />
-                </Switch>
-            </div>
+                
+            
+            </Switch>
         </Router>
     </div>
     // if you write exact like above its like exact ={true}
