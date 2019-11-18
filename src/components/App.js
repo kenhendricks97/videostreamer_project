@@ -1,5 +1,5 @@
 import React from 'react';
-import {Router, Route, Link} from 'react-router-dom'; 
+import {Router, Route, Link, Switch} from 'react-router-dom'; 
 
 //Import all stream pages
 import StreamCreate from './streams/StreamCreate';
@@ -21,11 +21,13 @@ const App = () => {
         <Router history={history}>
         <Header /> {/* import header on all pages*/ }
             <div>
-                <Route path="/" exact component={StreamList} /> {/* the home path*/}
-                <Route path="/streams/new" exact component={StreamCreate} /> 
-                <Route path="/streams/edit/:id" exact component={StreamEdit} /> {/*Always go to streams/edit/stream id*/}
-                <Route path="/streams/delete/:id" exact component={StreamDelete} />
-                <Route path="/streams/show" exact component={StreamShow} />
+                <Switch> {/*Shows just 1 route, cant show multiple*/ }
+                    <Route path="/" exact component={StreamList} /> {/* the home path*/}
+                    <Route path="/streams/new" exact component={StreamCreate} /> 
+                    <Route path="/streams/edit/:id" exact component={StreamEdit} /> {/*Always go to streams/edit/stream id*/}
+                    <Route path="/streams/delete/:id" exact component={StreamDelete} />
+                    <Route path="/streams/:id" exact component={StreamShow} />
+                </Switch>
             </div>
         </Router>
     </div>
